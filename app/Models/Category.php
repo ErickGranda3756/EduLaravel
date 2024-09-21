@@ -13,4 +13,9 @@ class Category extends Model
         'created_at',
         'updated_at'
     ];
+    /* Relacion de uno a muchos (category - articles) */
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
 }

@@ -13,4 +13,14 @@ class Comment extends Model
         'created_at',
         'updated_at'
     ];
+    /* Relacion inversa de muchos a uno (comments - users) */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    /* Relacion inversa de muchos a uno (comments - articles) */
+    public function article()
+    {
+        return $this->belongsTo(Article::class);
+    }
 }
