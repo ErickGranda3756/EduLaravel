@@ -13,8 +13,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    {{-- Le da formato al json --}}
+                        <pre>
+                            {{ var_dump ($categories)}}
+                        </pre>
                 </div>
             </div>
         </div>
