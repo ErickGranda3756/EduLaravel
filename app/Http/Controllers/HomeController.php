@@ -34,7 +34,7 @@ class HomeController extends Controller
             ["state","1"],
             ["is_featured","1"]
         ])->paginate(3);
-        return view('home',compact("articles","navbar"));
+        return view('home.index',compact("articles","navbar"));
     }
     /* Todas las categorias */
     public function all(){
@@ -45,6 +45,6 @@ class HomeController extends Controller
             ["state","1"],
             ["is_featured","1"]
         ])->paginate(3);
-        return view("home",compact("categories","navbar"));
+        return view("home.all-categories",compact("categories","navbar"));
     }
 }
