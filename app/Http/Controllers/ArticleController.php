@@ -8,6 +8,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ArticleController extends Controller
 {
@@ -65,25 +66,51 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
+    /* Ver los detalles y comentarios del articulo por parte del rol del subscrito */
     public function show(Article $article)
     {
-        //
+        $comments = $article->comments()->simplePaginate(5);
+        return view("subscriber.articles.show",compact("article","comments"));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
+        /*Editar las categorias  */
     public function edit(Article $article)
     {
-        //
+        /* Obtener categorias publicas */
+        $categories = Category::select(["id","name"])
+                ->where("state","1")
+                ->get();
+        return view('admin.articles.edit', compact('categories','article'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(ArticleRequest $request, Article $article)
     {
-        //
+        /* Si el usuario sube una nueva imagen */
+        if($request ->hasFile('image')){
+            /* Eliminar la imagen anterior */
+            File::delete(public_path('storage/' . $article->image));
+            /* Guardar la nueva imagen */
+            $article["image"] = $request->file('image')->store('articles');
+        }
+        /* Actualizar los datos */
+        $article->update([
+            "title" => $request->title,
+            "slug" => $request->slug,
+            "introduction" => $request->introduction,
+            "body" => $request->body,
+            "user_id" => Auth::user()->id,
+            "category_id" => $request->category_id,
+            "status" => $request->status,
+        ]);
+        /* Redireccionar al usuario al index */
+        return redirect()->action([ArticleController::class, 'index'])
+        ->with('success-update', 'Articulo modificado con exito');
     }
 
     /**
@@ -91,6 +118,14 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        //Elimina la imagen del articulo
+        if($article->image){
+            File::delete(public_path('storage/' . $article->image));
+        }
+        /* Elimnar articulo */
+        $article->delete();
+        /* Redireccionar al usuario al index */
+        return redirect()->action([ArticleController::class, 'index'])
+        ->with('success-delete', 'Articulo eliminado con exito');
     }
 }
