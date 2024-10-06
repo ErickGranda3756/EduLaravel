@@ -4,6 +4,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,10 @@ Route::resource("categories", CategoryController::class)
 Route::resource("comments", CommentController::class)
     ->only("index", "destroy")
     ->names("comments");
+/* Perfiles  */
+Route::resource("profiles", ProfileController::class)
+    ->only("edit", "update")
+    ->names("profiles");
 
 
 
