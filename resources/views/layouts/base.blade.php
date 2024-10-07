@@ -8,32 +8,36 @@
     <link rel="icon" href="{{ asset('img/icono.ico') }}">
 
     <!-- Estilos de bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    
     <!-- Estilos css generales -->
     <link href="{{ asset('css/base/css/general.css') }}" rel="stylesheet">
     <link href="{{ asset('css/base/css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/base/css/footer.css') }}" rel="stylesheet">
 
     <!-- Estilos cambiantes -->
-
+    @yield("styles")
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title></title>
+    <title>@yield("title")</title>
 </head>
 
 <body>
 
     <div class="content">
         <!-- Incluir menú -->
-
+        @include("layouts.menu")
         <section class="section">
-           
+            @yield("content")
         </section>
 
         <!-- Incluir footer -->
+        @include("layouts.footer")
     </div>
-
+    @yield("scripts")
     <!-- Scripts de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
