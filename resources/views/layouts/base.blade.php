@@ -8,13 +8,9 @@
     <link rel="icon" href="{{ asset('img/icono.ico') }}">
 
     <!-- Estilos de bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    
+    @vite(['resources/sass/app.scss'])
     <!-- Estilos css generales -->
-    <link href="{{ asset('css/base/css/general.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base/css/menu.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/base/css/footer.css') }}" rel="stylesheet">
+    @vite(['resources/css/base/css/general.css', 'resources/css/base/css/menu.css', 'resources/css/base/css/footer.css'])
 
     <!-- Estilos cambiantes -->
     @yield("styles")
