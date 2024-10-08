@@ -8,13 +8,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 /* Principal */
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get("/all", [HomeController::class, 'all'])->name('home.all');
 /* Articles */
 /* Metodo mas rapido */
