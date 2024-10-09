@@ -40,7 +40,7 @@ Route::get("/articles/{article}", [ArticleController::class, 'show'])->name('art
 /* Ver articulos por categorias */
 Route::get("/categories/{category}/articles", [ArticleController::class, 'detail'])->name('categories.detail');
 /* Guardar los comentarios */
-Route::get("/comment", [CommentController::class, 'store'])->name('comments.store');
+Route::post("/comment", [CommentController::class, 'store'])->name('comments.store');
 Auth::routes();
 /* Route::get("/articles",[ArticleController::class, 'index'])->name('articles.index');
 Route::get("/articles/create",[ArticleController::class, 'create'])->name('articles.create');

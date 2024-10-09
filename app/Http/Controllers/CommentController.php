@@ -56,7 +56,7 @@ class CommentController extends Controller
             ]);
             return redirect()->action([ArticleController::class, "show"], [$article->slug]);
         } else {
-            return redirect()->action([ArticleController::class, "show"], [$article->slug])->with("error", "Solo puedes comentar una vez");
+            return redirect()->action([ArticleController::class, "show"], [$article->slug])->with("success-error", "Solo puedes comentar una vez");
         }
     }
 
