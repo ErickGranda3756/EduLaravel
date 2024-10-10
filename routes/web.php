@@ -32,13 +32,10 @@ Route::resource("profiles", ProfileController::class)
     ->only("edit", "update")
     ->names("profiles");
 
-
-
-
 /* Ver articulos */
 Route::get("/articles/{article}", [ArticleController::class, 'show'])->name('articles.show');
 /* Ver articulos por categorias */
-Route::get("/categories/{category}/articles", [ArticleController::class, 'detail'])->name('categories.detail');
+Route::get("/categories/{category}/articles", [CategoryController::class, 'detail'])->name('categories.detail');
 /* Guardar los comentarios */
 Route::post("/comment", [CommentController::class, 'store'])->name('comments.store');
 Auth::routes();

@@ -3,7 +3,7 @@
 
         <div class="logo">
             <!--Logo-->
-            <a href="#"><img src="" alt="Logo"></a>
+            <a href="{{route("home.index")}}"><img src="{{asset("img/logo.png")}}" alt="Logo"></a>
         </div>
 
         {{-- Directiva - si el usuario no esta autenticado se muestra opciones a diferencia del administrador --}}

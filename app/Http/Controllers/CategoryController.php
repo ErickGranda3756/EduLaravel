@@ -103,18 +103,20 @@ class CategoryController extends Controller
             ->with('success-delete', 'Categoría eliminada con éxito');
     }
     /* Filtrar articulos por categorias */
-    public function detail(Category $category) {
+    public function detail(Category $category)
+    {
+        $this->authorize("published", $category);
         $articles = Article::where([
-            ['category_id',$category->id],
-            ['state','1']
+            ['category_id', $category->id],
+            ['status', '1']
         ])
-        ->orderBy('id','desc')
-        ->simplePaginate(5);
+            ->orderBy('id', 'desc')
+            ->simplePaginate(5);
 
         $navbar = Category::where([
-            ["state","1"],
-            ["is_featured","1"]
+            ["state", "1"],
+            ["is_featured", "1"]
         ])->paginate(3);
-        return view('subscriber.categories.detail',compact('articles','navbar','category'));
+        return view('subscriber.categories.detail', compact('articles', 'navbar', 'category'));
     }
 }
