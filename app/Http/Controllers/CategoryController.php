@@ -112,7 +112,7 @@ class CategoryController extends Controller
         ])
             ->orderBy('id', 'desc')
             ->simplePaginate(5);
-
+            
         $navbar = Category::where([
             ["state", "1"],
             ["is_featured", "1"]

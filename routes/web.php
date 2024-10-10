@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 /* Principal */
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get("/all", [HomeController::class, 'all'])->name('home.all');
+/* Administrador */
+Route::get("/admin",[AdminController::class,"index"])->name("admin.index");
+
+
 /* Articles */
 /* Metodo mas rapido */
 Route::resource("articles", ArticleController::class)
