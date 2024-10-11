@@ -8,6 +8,14 @@
 <div class="alert alert-info">
     {{session("success-create")}}
 </div>
+@elseif(session("success-update"))
+<div class="alert alert-info">
+    {{session("success-update")}}
+</div>
+@elseif(session("success-delete"))
+<div class="alert alert-info">
+    {{session("success-delete")}}
+</div>
 @endif
 <div class="card">
     <div class="card-header">
@@ -38,11 +46,13 @@
                     <td width="2px"><a href="{{route("articles.show",$article->slug)}}"
                             class="btn btn-primary btn-sm mb-2">Mostrar</a></td>
 
-                    <td width="5px"><a href="#"
+                    <td width="5px"><a href="{{route("articles.edit",$article->slug)}}"
                             class="btn btn-primary btn-sm mb-2">Editar</a></td>
 
                     <td width="5px">
-                        <form action="#" method="POST">
+                        <form action="{{route("articles.destroy",$article->slug)}}" method="POST">
+                            @csrf
+                            @method("DELETE")
                             <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
                         </form>
                     </td>

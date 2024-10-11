@@ -21,7 +21,8 @@ class ArticlePolicy
      */
     public function view(User $user, Article $article): bool
     {
-        //
+        //Revisar si el usuario autenticado es el mismo que creo el articulo
+        return $user->id == $article->user_id;
     }
 
     /**
@@ -37,7 +38,8 @@ class ArticlePolicy
      */
     public function update(User $user, Article $article): bool
     {
-        //
+        ////Revisar si el usuario autenticado es el mismo que creo el articulo
+        return $user->id == $article->user_id;
     }
 
     /**
@@ -45,7 +47,8 @@ class ArticlePolicy
      */
     public function delete(User $user, Article $article): bool
     {
-        //
+        ////Revisar si el usuario autenticado es el mismo que creo el articulo
+        return $user->id == $article->user_id;
     }
 
     /**

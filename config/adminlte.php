@@ -325,19 +325,19 @@ return [
             'text' => 'Artículos',
             'route' => 'articles.index',
             'icon' => 'fas fa-poll',
-            "active" => ["articles*"]
+            "active" => ["admin/articles*"]
         ],
         [
             'text' => 'Categorías',
             'route' => 'categories.index',
             'icon' => 'fas fa-poll',
-            "active" => ["categories*"]
+            "active" => ["admin/categories*"]
         ],
         [
             'text' => 'Comentarios',
             'route' => 'comments.index',
             'icon' => 'fas fa-poll',
-            "active" => ["comments*"]
+            "active" => ["admin/comments*"]
         ],
     ],
 

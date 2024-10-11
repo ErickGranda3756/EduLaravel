@@ -81,6 +81,8 @@ class ArticleController extends Controller
     /*Editar las categorias  */
     public function edit(Article $article)
     {
+        /* Validar que el usuario sea el autor del articulo */
+        $this->authorize('view', $article);
         /* Obtener categorias publicas */
         $categories = Category::select(["id", "name"])
             ->where("state", "1")
@@ -93,6 +95,8 @@ class ArticleController extends Controller
      */
     public function update(ArticleRequest $request, Article $article)
     {
+        /* Validar que el usuario sea el autor del articulo */
+        $this->authorize('update', $article);
         /* Si el usuario sube una nueva imagen */
         if ($request->hasFile('image')) {
             /* Eliminar la imagen anterior */
@@ -120,6 +124,8 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
+        /* Validar que el usuario sea el autor del articulo */
+        $this->authorize('delete', $article);
         //Elimina la imagen del articulo
         if ($article->image) {
             File::delete(public_path('storage/' . $article->image));
