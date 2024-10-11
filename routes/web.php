@@ -16,7 +16,24 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get("/all", [HomeController::class, 'all'])->name('home.all');
 /* Administrador */
 Route::get("/admin",[AdminController::class,"index"])->name("admin.index");
-
+/* Rutas del admin */
+Route::namespace("App\Http\Controllers")
+    ->prefix("admin")
+    /* Articulos */
+    ->group(function () {
+        Route::resource("articles", "ArticleController")
+            ->except("show")
+            ->names("articles");
+            /* Categorias */
+        Route::resource("categories", "CategoryController")
+        /* Indicar las rutas que no se van a utilizar */
+        ->except("show")
+        ->names("categories");
+        /* Comentarios */
+        Route::resource("comments", "CommentController")
+        ->only("index", "destroy")
+        ->names("comments");
+    });
 
 /* Articles */
 /* Metodo mas rapido */
