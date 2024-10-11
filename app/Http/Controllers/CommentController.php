@@ -20,9 +20,10 @@ class CommentController extends Controller
         $comments = DB::table("comments")
             ->join("articles", "comments.article_id", "=", "articles.id")
             ->join("users", "comments.user_id", "=", "users.id")
-            ->select("comments.value", "comments.description", "articles.title", "users.full_name")
+            ->select("comments.id","comments.value", "comments.description", "articles.title", "users.full_name")
             ->where("articles.user_id", "=", Auth::user()->id)
-            ->orderBy("articles.id", "desc");
+            ->orderBy("articles.id", "desc")
+            ->get();
         return view("admin.comments.index", compact("comments"));
     }
 
