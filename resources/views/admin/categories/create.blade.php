@@ -10,16 +10,16 @@
 
 <div class="card">
     <div class="card-body">
-        <form method="POST" action="#" enctype="multipart/form-data">
-
+        <form method="POST" action="{{route("categories.store")}}" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label for="">Nombre</label>
                 <input type="text" class="form-control" id="name" name='name' placeholder="Nombre de la categoría"
-                    value="">
+                    value="{{old("name")}}">
 
                 @error('name')
                 <span class="text-danger">
-                    <span>* </span>
+                    <span>* {{$message}}</span>
                 </span>
                 @enderror
             </div>
@@ -28,7 +28,7 @@
             <div class="form-group">
                 <label for="">Slug</label>
                 <input type="text" class="form-control" id="slug" name='slug' placeholder="Slug de la categoría" readonly
-                    value="">
+                    value="{{old("slug")}}">
 
                 @error('slug')
                 <span class="text-danger">
@@ -53,15 +53,15 @@
             <div class="form-group">
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="">Privado</label>
-                    <input class="form-check-input ml-2" type="radio" name='status' id="status" value="0" checked>
+                    <input class="form-check-input ml-2" type="radio" name='state' id="state" value="0" checked>
                 </div>
 
                 <div class="form-check form-check-inline">
                     <label class="form-check-label" for="">Público</label>
-                    <input class="form-check-input ml-2" type="radio" name='status' id="status" value="1">
+                    <input class="form-check-input ml-2" type="radio" name='state' id="state" value="1">
                 </div>
 
-                @error('status')
+                @error('state')
                 <span class="text-danger">
                     <span>*{{ $message }}</span>
                 </span>
@@ -93,4 +93,15 @@
     </div>
 </div>
 @endsection
-
+@section('js')
+<script src="{{asset("vendor/jQuery-Plugin-stringToSlug-1.3/jquery.stringToSlug.min.js")}}"></script>
+    <script>
+       $(document).ready( function() {
+        $("#name").stringToSlug({
+            setEvents: 'keyup keydown blur',
+            getPut: '#slug',
+            space: '-'
+        });
+});
+    </script>
+@endsection

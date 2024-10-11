@@ -6,7 +6,6 @@ use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Article;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
@@ -33,7 +32,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CategoryController $request)
+    public function store(CategoryRequest $request)
     {
         $category = $request->all();
         /* Validar si hay un archivo */
@@ -41,7 +40,7 @@ class CategoryController extends Controller
             $category['image'] = $request->file('image')->store('categories');
         }
         /* Guardar informacion */
-        Category::created($category);
+        Category::create($category);
         /* Redirigir al index */
         return redirect()->action([CategoryController::class, 'index'])
             ->with('success-create', 'Categoria creada con exito');
