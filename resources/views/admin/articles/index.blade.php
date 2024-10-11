@@ -4,9 +4,14 @@
 <h2>Administra tus artículos</h2>
 @endsection
 @section('content')
+@if(session("success-create"))
+<div class="alert alert-info">
+    {{session("success-create")}}
+</div>
+@endif
 <div class="card">
     <div class="card-header">
-        <a class="btn btn-primary" href="#">Crear artículo</a>
+        <a class="btn btn-primary" href="{{route("articles.create")}}">Crear artículo</a>
     </div>
 
     <div class="card-body">
