@@ -44,8 +44,8 @@
                 <tr>
                     <td>{{$category->name}}</td>
                     <td>
-                        <input type="checkbox" name="status" id="status" class="form-check-input ml-3"
-                        {{$category->status? 'checked=checked': ''}}
+                        <input type="checkbox" name="state" id="state" class="form-check-input ml-3"
+                        {{$category->state? 'checked=checked': ''}}
                             disabled>
                     </td>
                     <td>
@@ -55,11 +55,13 @@
                     </td>
 
 
-                    <td width="10px"><a href="#"
+                    <td width="10px"><a href="{{route("categories.edit",$category)}}"
                             class="btn btn-primary btn-sm mb-2">Editar</a></td>
                    
                     <td width="10px">
-                        <form action="#" method="POST">
+                        <form action="{{route("categories.destroy",$category->slug)}}" method="POST">
+                            @csrf
+                            @method("DELETE")
                             <input type="submit" value="Eliminar" class="btn btn-danger btn-sm">
                         </form>
                     </td>
