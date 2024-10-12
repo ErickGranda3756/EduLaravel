@@ -33,6 +33,10 @@ Route::namespace("App\Http\Controllers")
         Route::resource("comments", "CommentController")
         ->only("index", "destroy")
         ->names("comments");
+        /* Usuarios  */
+        Route::resource("users", "UserController")
+        ->except("create","store","show")
+        ->names("users");
     });
 
 /* Articles */
