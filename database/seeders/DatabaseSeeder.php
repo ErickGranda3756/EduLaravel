@@ -17,8 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        /* LLamar al seeder */
+        /* Llamar al seeder de roles */
+        $this->call(RolSeeder::class);
+        /* LLamar al seeder de usuarios */
         $this->call(UserSeeder::class);
+        
         //eliminar carpeta articles
         Storage::deleteDirectory('articles');
 

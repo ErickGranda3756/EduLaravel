@@ -18,12 +18,12 @@ class UserSeeder extends Seeder
             'full_name' => 'LuisGranda',
             'email' => 'luisgranda@gmail.com',
             'password' => Hash::make('12345678'),
-        ]);
+        ])->assignRole('Administrator');
         User::create([
             'full_name' => 'MariaPerez',
             'email' => 'mariaperez@gmail.com',
             'password' => Hash::make('87654321'),
-        ]);
+        ])->assignRole('Author');
 
         User::factory(10)->create();
     }
