@@ -29,6 +29,8 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        // Validar que el usuario sea el autor del perfil
+        $this->authorize('view', $profile);
         return view("subscriber.profiles.edit", compact("profile"));
     }
 
@@ -37,6 +39,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, Profile $profile)
     {
+        // Validar que el usuario sea el autor del perfil
+        $this->authorize('update', $profile);
         // Obtén al usuario autenticado
         $user = Auth::user();
 
