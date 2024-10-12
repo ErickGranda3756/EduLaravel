@@ -7,11 +7,7 @@
 @endsection
 
 @section('content')
-@if(session("success-update"))
-    <div class="alert alert-info">
-        {{session("success-update")}}
-    </div>
-@elseif(session("success-delete"))
+@if(session("success-delete"))
     <div class="alert alert-info">
         {{session("success-delete")}}
     </div>
