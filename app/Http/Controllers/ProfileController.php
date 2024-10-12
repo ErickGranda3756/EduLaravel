@@ -37,36 +37,38 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, Profile $profile)
     {
-        /* Guardamos la informacion del usuario */
+        // Obtén al usuario autenticado
         $user = Auth::user();
-        /* Comporbar si el usuario sube una foto */
+
+        // Comprobar si el usuario sube una foto
         if ($request->hasFile("photo")) {
-            /* Eliminar la foto anterior */
-            File::delete(public_path("storage/") . $profile->photo);
-            /* Guardar la nueva foto */
-            $photo = $request["photo"]->store("profiles");
+            // Eliminar la foto anterior si existe
+            if ($profile->photo) {
+                File::delete(public_path("storage/") . $profile->photo);
+            }
+
+            // Guardar la nueva foto
+            $photo = $request->file('photo')->store('profiles', 'public');
         } else {
-            $photo = $user->profile->photo;
+            // Si no hay nueva foto, mantener la foto actual
+            $photo = $profile->photo;
         }
-        /* Asignar nombre y correo */
+
+        // Asignar los valores actualizados al usuario
         $user->full_name = $request->full_name;
         $user->email = $request->email;
-        /* Asignar la foto */
-        $user->profile->photo = $photo;
-        //Asignar campos adicionales 
-        $user->profile->profession = $request->profession;
-        $user->profile->about = $request->about;
-        $user->profile->photo = $photo;
-        $user->profile->twitter = $request->twitter;
-        $user->profile->linkedin = $request->linkedin;
-        $user->profile->facebook = $request->facebook;
+        $user->save(); // Guarda los cambios del usuario
 
-        $user = User::find(Auth::id());
-        /* Guardar campos de usuario */
-        $user->save();
-        /* Guardar campos de perfil */
-        $user->profile->save();
-        /* Redireccionar al home */
-        return redirect()->route("profiles.edit", $user->profile->id);
+        // Asignar valores adicionales al perfil
+        $profile->photo = $photo;
+        $profile->profession = $request->profession;
+        $profile->about = $request->about;
+        $profile->twitter = $request->twitter;
+        $profile->linkedin = $request->linkedin;
+        $profile->facebook = $request->facebook;
+        $profile->save(); // Guarda los cambios del perfil
+
+        // Redireccionar con mensaje de éxito
+        return redirect()->route("profiles.edit", $profile->id)->with('success', 'Perfil actualizado correctamente');
     }
 }
