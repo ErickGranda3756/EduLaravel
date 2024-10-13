@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
+    /* Proteger rutas */
+    public function __construct()
+    {
+        /* Proteger las rutas */
+        $this->middleware('auth');
+    }
     /*  */
     public function store(Profile $profile)
     {

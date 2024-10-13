@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\DB;
 
 class CommentController extends Controller
 {
+    /* Proteger rutas */
+    public function __construct()
+    {
+        /* Proteger las rutas */
+        $this->middleware('can:comments.index')->only('index');
+        $this->middleware('can:comments.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      */
