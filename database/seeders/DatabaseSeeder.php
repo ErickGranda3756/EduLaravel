@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
+use App\Models\Category;
+use App\Models\Comment;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +17,25 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        /* Llamar al seeder de roles */
+        $this->call(RolSeeder::class);
+        /* LLamar al seeder de usuarios */
+        $this->call(UserSeeder::class);
+        
+        //eliminar carpeta articles
+        Storage::deleteDirectory('articles');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        //eliminar la carpeta categories
+        Storage::deleteDirectory('categories');
+
+            //crear carpeta articles
+        Storage::makeDirectory('articles');
+
+            //Crea la carpeta categories
+        Storage::makeDirectory('categories');
+        /* Factories */
+        Category::factory(8)->create();
+        Article::factory(20)->create();
+        Comment::factory(20)->create();
     }
 }
