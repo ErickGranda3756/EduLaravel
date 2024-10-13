@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="800" height="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -100,6 +100,58 @@ Algunos comandos comunes que podrías utilizar durante el desarrollo:
   ```bash
   php artisan test
   ```
+
+## Capturas de Pantalla
+
+Aquí puedes ver algunas capturas del proyecto en funcionamiento:
+### Login
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Login.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Registrarse
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Registrarse.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Restablecer
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Restablecer.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Artículo
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Blog.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Comentarios
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Comments.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Editar perfil
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Editar%20perfil.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Administrador
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Admin.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Gestión de artículos
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Articles.png" width="800" height="400" alt="Captura 1">
+</p>
+
+### Gestión de modulos
+<p align="center">
+  <img src="https://github.com/ErickGranda3756/EduLaravel/blob/main/captures/Categories.png" width="800" height="400" alt="Captura 1">
+</p>
+
+
+
+
 
 ## Documentación y Recursos
 
