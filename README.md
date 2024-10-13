@@ -1,3 +1,4 @@
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -7,60 +8,105 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Proyecto Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Este proyecto está desarrollado utilizando el framework **Laravel**, una plataforma poderosa y flexible para crear aplicaciones web modernas. Laravel facilita las tareas comunes en proyectos web como el enrutamiento, la gestión de bases de datos, procesamiento en segundo plano, entre otras.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Características
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Sistema de enrutamiento eficiente y fácil de usar.
+- Potente contenedor de inyección de dependencias.
+- Soporte para múltiples backends de sesiones y caché.
+- ORM intuitivo para manejo de bases de datos (Eloquent).
+- Sistema de migraciones de bases de datos.
+- Procesamiento robusto de trabajos en segundo plano.
+- Emisión de eventos en tiempo real.
 
-## Learning Laravel
+## Requisitos del Sistema
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Asegúrate de tener instaladas las siguientes dependencias antes de empezar:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP >= 8.1
+- Composer
+- MySQL / MariaDB
+- Node.js y npm (para compilación de activos)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Instalación
 
-## Laravel Sponsors
+Sigue estos pasos para clonar y configurar el proyecto:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/ErickGranda3756/EduLaravel.git
+   cd tu_proyecto
+   ```
 
-### Premium Partners
+2. Instala las dependencias de PHP utilizando Composer:
+   ```bash
+   composer install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. Copia el archivo `.env.example` a `.env` y configura las variables de entorno:
+   ```bash
+   cp .env.example .env
+   ```
 
-## Contributing
+4. Genera la clave de la aplicación:
+   ```bash
+   php artisan key:generate
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Configura la base de datos en el archivo `.env`, luego migra las tablas:
+   ```bash
+   php artisan migrate
+   ```
 
-## Code of Conduct
+6. Instala las dependencias de Node.js y compila los archivos front-end:
+   ```bash
+   npm install
+   npm run dev
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+7. Inicia el servidor de desarrollo:
+   ```bash
+   php artisan serve
+   ```
 
-## Security Vulnerabilities
+## Comandos Útiles
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Algunos comandos comunes que podrías utilizar durante el desarrollo:
 
-## License
+- **Iniciar el servidor de desarrollo:**
+  ```bash
+  php artisan serve
+  ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **Ejecutar migraciones de base de datos:**
+  ```bash
+  php artisan migrate
+  ```
+
+- **Revertir migraciones:**
+  ```bash
+  php artisan migrate:rollback
+  ```
+
+- **Compilar activos de front-end:**
+  ```bash
+  npm run dev
+  ```
+
+- **Ejecutar tests:**
+  ```bash
+  php artisan test
+  ```
+
+## Documentación y Recursos
+
+- [Documentación de Laravel](https://laravel.com/docs)
+- [Laravel Bootcamp](https://bootcamp.laravel.com)
+- [Laracasts](https://laracasts.com)
+
+## Licencia
+
+Este proyecto está licenciado bajo la [licencia MIT](https://opensource.org/licenses/MIT).
