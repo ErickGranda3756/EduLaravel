@@ -37,6 +37,10 @@ Route::namespace("App\Http\Controllers")
         Route::resource("users", "UserController")
         ->except("create","store","show")
         ->names("users");
+        /* Roles */
+        Route::resource("roles", "RoleController")
+        ->except("show")
+        ->names("roles");
     });
 
 /* Articles */
