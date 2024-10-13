@@ -355,6 +355,13 @@ return [
             "active" => ["admin/users*"],
             'can' => 'users.index',
         ],
+        [
+            'text' => 'Roles',
+            'route' => 'roles.index',
+            'icon' => 'fas fa-lock',
+            "active" => ["admin/roles*"],
+            'can' => 'roles.index',
+        ],
     ],
 
     /*
